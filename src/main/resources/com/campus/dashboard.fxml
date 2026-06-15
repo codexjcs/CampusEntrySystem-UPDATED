@@ -240,7 +240,8 @@
 
                         <Region HBox.hgrow="ALWAYS"/>
 
-                        <Label text="5"
+                        <Label fx:id="currentlyInLabel"
+                               text="0"
                                style="
                                    -fx-font-size: 28px;
                                    -fx-text-fill: #0f172a;
