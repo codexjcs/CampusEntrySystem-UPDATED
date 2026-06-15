@@ -60,11 +60,10 @@ public class AttendanceDAO {
     }
 
     // ── FIND TODAY ──────────────────────────────────────────
-    public List<AttendanceRecord> findAllToday() throws SQLException {
+    public List<AttendanceRecord> findAll() throws SQLException {
         String sql = """
             SELECT id, student_id, action, timestamp
             FROM attendance
-            WHERE DATE(timestamp) = CURRENT_DATE
             ORDER BY timestamp DESC
         """;
 
