@@ -22,6 +22,19 @@ COMMENT ON COLUMN students.course      IS 'Plain text course code — e.g. BSIT,
 COMMENT ON COLUMN students.year_level  IS 'Plain text year level — e.g. 2nd Year.';
 COMMENT ON COLUMN students.contact     IS 'Digits only, 10–15 characters.';
 
+INSERT INTO students (student_id, full_name, course, year_level, contact, email)
+VALUES
+('2024-0001', 'Johnny Bravo', 'BSIT', '4th', '0912345678', 'jbravo@gmail.com'),
+('2024-0002', 'Maria Santos', 'BSCS', '3rd', '0912345679', 'msantos@gmail.com'),
+('2024-0003', 'Juan Dela Cruz', 'BSIT', '2nd', '0912345680', 'jdelacruz@gmail.com'),
+('2024-0004', 'Ana Reyes', 'BSIS', '1st', '0912345681', 'areyes@gmail.com'),
+('2024-0005', 'Mark Lopez', 'BSIT', '4th', '0912345682', 'mlopez@gmail.com'),
+('2024-0006', 'Sarah Garcia', 'BSCS', '3rd', '0912345683', 'sgarcia@gmail.com'),
+('2024-0007', 'Kevin Torres', 'BSIS', '2nd', '0912345684', 'ktorres@gmail.com'),
+('2024-0008', 'Patricia Cruz', 'BSIT', '1st', '0912345685', 'pcruz@gmail.com'),
+('2024-0009', 'James Mendoza', 'BSCS', '4th', '0912345686', 'jmendoza@gmail.com'),
+('2024-0010', 'Angelica Flores', 'BSIS', '3rd', '0912345687', 'aflores@gmail.com');
+
 -- 2. faculty
 -- =============================================================
 CREATE TABLE IF NOT EXISTS faculty (
@@ -68,16 +81,3 @@ CREATE TABLE IF NOT EXISTS export_log_attendance (
     attendance_id BIGINT NOT NULL REFERENCES attendance(id)   ON DELETE CASCADE,
     PRIMARY KEY (export_id, attendance_id)
     );
-
-INSERT INTO students (student_id, full_name, course, year_level, contact, email)
-VALUES
-    ('2024-0001', 'Johnny Bravo', 'BSIT', '4th', '0912345678', 'jbravo@gmail.com'),
-    ('2024-0002', 'Maria Santos', 'BSCS', '3rd', '0912345679', 'msantos@gmail.com'),
-    ('2024-0003', 'Juan Dela Cruz', 'BSIT', '2nd', '0912345680', 'jdelacruz@gmail.com'),
-    ('2024-0004', 'Ana Reyes', 'BSIS', '1st', '0912345681', 'areyes@gmail.com'),
-    ('2024-0005', 'Mark Lopez', 'BSIT', '4th', '0912345682', 'mlopez@gmail.com'),
-    ('2024-0006', 'Sarah Garcia', 'BSCS', '3rd', '0912345683', 'sgarcia@gmail.com'),
-    ('2024-0007', 'Kevin Torres', 'BSIS', '2nd', '0912345684', 'ktorres@gmail.com'),
-    ('2024-0008', 'Patricia Cruz', 'BSIT', '1st', '0912345685', 'pcruz@gmail.com'),
-    ('2024-0009', 'James Mendoza', 'BSCS', '4th', '0912345686', 'jmendoza@gmail.com'),
-    ('2024-0010', 'Angelica Flores', 'BSIS', '3rd', '0912345687', 'aflores@gmail.com');
