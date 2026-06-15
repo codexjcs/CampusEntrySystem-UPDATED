@@ -41,6 +41,7 @@ public class DashboardController {
     @FXML private Label totalEntriesLabel;
     @FXML private Label timeInLabel;
     @FXML private Label timeOutLabel;
+    @FXML private Label currentlyInLabel;
 
     private static final DateTimeFormatter TIME_FMT =
             DateTimeFormatter.ofPattern("hh:mm a");
@@ -163,10 +164,12 @@ public class DashboardController {
 
             long ins = data.stream().filter(r -> r.timeIn != null).count();
             long outs = data.stream().filter(r -> r.timeOut != null).count();
+            long currentlyIn = data.stream().filter(r -> r.timeIn != null && r.timeOut == null).count();
 
             totalEntriesLabel.setText(String.valueOf(data.size()));
             timeInLabel.setText(String.valueOf(ins));
             timeOutLabel.setText(String.valueOf(outs));
+            if (currentlyInLabel != null) currentlyInLabel.setText(String.valueOf(currentlyIn));
 
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Database Error", e.getMessage());
