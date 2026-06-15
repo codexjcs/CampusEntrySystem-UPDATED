@@ -44,7 +44,7 @@ public class AttendanceDAO {
     }
 
     // ── DELETE (✅ FIX FOR YOUR ERROR) ───────────────────────
-    public void deleteTodayByStudentId(String studentId) throws SQLException {
+    public void deleteByStudentId(String studentId) throws SQLException {
         String sql = """
             DELETE FROM attendance
             WHERE student_id = ?
