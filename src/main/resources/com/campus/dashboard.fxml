@@ -283,7 +283,7 @@
                                -fx-text-fill: white;
                            "/>
 
-                    <Label text="Today's attendance log — select a row, then use the action buttons below to edit or delete"
+                    <Label text="Attendance log — select a row, then use the action button below to delete"
                            style="
                                -fx-font-size: 12px;
                                -fx-text-fill: #ffe5e5;
