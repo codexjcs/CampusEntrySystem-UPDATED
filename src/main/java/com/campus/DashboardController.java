@@ -58,7 +58,7 @@ public class DashboardController {
 
         setupColumns();
         setupSelectionActions();
-        loadTodayData();
+        loadData();
     }
 
     // ── Columns ──────────────────────────────────────────────────────────────
@@ -121,8 +121,8 @@ public class DashboardController {
         confirm.showAndWait().ifPresent(btn -> {
             if (btn == ButtonType.OK) {
                 try {
-                    attendanceDAO.deleteTodayByStudentId(record.studentId);
-                    loadTodayData();
+                    attendanceDAO.deleteByStudentId(record.studentId);
+                    loadData();
                 } catch (SQLException e) {
                     showAlert(Alert.AlertType.ERROR, "Delete Failed", e.getMessage());
                 }
@@ -131,7 +131,7 @@ public class DashboardController {
     }
 
     // ── Load Data ────────────────────────────────────────────────────────────
-    private void loadTodayData() {
+    private void loadData() {
         try {
             List<AttendanceRecord> records = attendanceDAO.findAll();
 
@@ -203,7 +203,7 @@ public class DashboardController {
     }
 
     @FXML private void refreshTable() {
-        loadTodayData();
+        loadData();
     }
 
     @FXML private void logout() {
